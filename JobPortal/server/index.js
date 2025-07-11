@@ -5,6 +5,7 @@ const DBconnect = require('./Config/Database');
 const PORT = 5000
 
 const userRoute = require("./Route/UserRoute");
+const jobRoute = require("./Route/JobRoute")
 
 const app = express();
 require('dotenv').config();
@@ -19,6 +20,7 @@ app.use(cors({
 
 //routes
 app.use("/api/auth",userRoute);
+app.use("/api",jobRoute)
 
 
 DBconnect();
