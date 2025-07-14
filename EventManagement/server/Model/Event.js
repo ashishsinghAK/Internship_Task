@@ -32,6 +32,7 @@ const eventSchema = new mongoose.Schema({
     capacity: {
         type: Number,
         default: 0,
+        required:true
     },
     address: {
         type: String,

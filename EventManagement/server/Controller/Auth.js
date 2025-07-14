@@ -41,3 +41,20 @@ exports.verifyToken = async (req, res, next) => {
         })
     }
 }
+
+exports.isAdmin = (req,res,next) => {
+    try{
+        if(req.user?.role !== 'admin'){
+            return res.status(401).json({
+                success:false,
+                message:"Admin Access Only"
+            })
+        }
+        next()
+    }catch(error){
+        return res.status(500).json({
+            success:false,
+            message:"Verification Failed"
+        })
+    }
+}
